@@ -1,0 +1,303 @@
+/* עיצוב כללי */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* כותרת */
+h1, h3 {
+  color: #333;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* תפריט סינון */
+.filter-dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-dropdown .select-task{
+  flex-basis: 50%;
+}
+
+.filter-dropdown .add-subject{
+  flex-basis: 25%;
+}
+
+.filter-dropdown .delete-all{
+  flex-basis: 25%;
+}
+
+.filter-dropdown select, 
+.filter-dropdown button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.filter-dropdown button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-dropdown button:hover {
+  background-color: #0056b3;
+}
+
+/* רשימת משימות */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-item {
+  position: relative;
+  border: 2px solid white;
+  background-image: linear-gradient(to left, white , lightblue);  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-item h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.task-item p {
+  margin: 5px 0;
+}
+
+.task-item .days-left{
+  color: red;
+  font-weight: 600;
+}
+
+.task-item .due-date{
+  position: absolute;
+  margin-top: 0;
+  top: 0;
+  left: 0px;
+  padding: 5px 20px;
+  color: #333;
+  background-color: white;
+  border-bottom: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-radius: 6px 0px;
+} 
+
+.task-item-buttons{
+  display: flex;
+  justify-content: stretch;
+  gap: 8px;
+}
+
+.task-item-buttons .mark-as-completed-button{
+  flex-basis: 25%;
+  background-color:lightgreen;
+  color: white;
+  padding: 2px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+
+.task-item-buttons .edit-button{
+  flex-basis: 50%;
+  background-color:lightslategray;
+  color: white;
+  padding: 2px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.task-item-buttons .delete-button{
+  flex-basis: 25%;
+  background-color: lightcoral;
+  color: white;
+  padding: 2px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+/* עיצוב משימות שהושלמו */
+.completed p,
+.completed h3{
+  text-decoration: line-through;
+  color: gray;
+}
+
+.completed .due-date{
+  text-decoration: none;
+}
+
+
+.task-item button:nth-child(4) {
+  background-color: #28a745; /* כפתור סימון כהושלם */
+  color: white;
+}
+
+.task-item button:nth-child(4):hover {
+  background-color: #218838;
+}
+
+.task-item button:nth-child(5) {
+  background-color: #ffc107; /* כפתור עריכה */
+  color: black;
+}
+
+.task-item button:nth-child(5):hover {
+  background-color: #e0a800;
+}
+
+.task-item button:nth-child(6) {
+  background-color: #dc3545; /* כפתור מחיקה */
+  color: white;
+}
+
+.task-item button:nth-child(6):hover {
+  background-color: #c82333;
+}
+
+/* כפתור הוספת משימה */
+button.add-task-button {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: auto;
+  padding-top: 6px ;
+  padding-bottom: 6px ;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.add-task-button .add-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 22px;
+  border: 2px solid white;
+  border-radius: 50%;
+
+
+}
+
+button.add-task-button:hover {
+  background-color: #0056b3;
+}
+
+/* מודאל */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.modal-content input[type="text"],
+.modal-content textarea,
+.modal-content input[type="date"],
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:first-of-type {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-content button:last-of-type {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* התאמה למכשירים ניידים */
+@media (max-width: 600px) {
+  .app {
+    padding: 10px;
+  }
+
+  .task-item {
+    padding: 10px;
+  }
+
+  button.add-task-button {
+    font-size: 14px;
+    width: 40%;
+  }
+
+  .filter-dropdown select,
+  .filter-dropdown button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
